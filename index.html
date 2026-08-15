@@ -45,6 +45,19 @@
                     </a>
                 </li>
             </ul>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark/Light Mode" style="display: none;">
+                    <!-- Sun Icon for Light Mode (hidden by default) -->
+                    <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                    <!-- Moon Icon for Dark Mode -->
+                    <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                </button>
+                <div class="hamburger" id="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
         </nav>
     </header>
 
@@ -167,15 +180,15 @@
             </div>
         </section>
 
-        <!-- Interactive Map (Projects) Section -->
-        <section id="projects" class="section dark-section">
+        <!-- Map Section -->
+        <section id="projects" class="section">
             <div class="container">
                 <h2 class="section-title scroll-reveal">Project Footprint</h2>
 
                 <div class="map-container scroll-reveal mt-4">
                     <!-- A beautifully styled container for the interactive ECharts map -->
                     <div class="interactive-map glass-panel" id="indo-map"
-                        style="width: 100%; height: 100%; padding: 0;">
+                        style="height: 100%; padding: 0;">
                         <!-- Map Info Overlay -->
                         <div class="map-info">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -184,17 +197,22 @@
                                 <line x1="12" y1="16" x2="12" y2="12"></line>
                                 <line x1="12" y1="8" x2="12.01" y2="8"></line>
                             </svg>
-                            Hover over the map to highlight regions, or browse our complete portfolio below. Click a
-                            card to expand details.
+                            Hover over a map point to view projects in that region.
                         </div>
                         <!-- ECharts will render the canvas here -->
                     </div>
 
-                    <div class="project-details glass-panel" id="project-details">
-                        <h3 id="pd-title" style="margin-bottom: 1.5rem; font-family:'Playfair Display', serif;">All
-                            Portfolios</h3>
-                        <div id="pd-list" class="project-list">
-                            <!-- Populated by JS with glassmorphism cards -->
+                    <div class="portfolio-gallery-wrapper">
+                        <div id="portfolio-gallery" class="portfolio-gallery">
+                            <!-- Populated by JS with square image cards -->
+                        </div>
+                        <div class="carousel-controls" style="justify-content: center; margin-top: 1.5rem;">
+                            <button id="port-prev" class="carousel-btn" aria-label="Previous Project">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                            </button>
+                            <button id="port-next" class="carousel-btn" aria-label="Next Project">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -315,7 +333,7 @@
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
-    <script src="assets/js/indonesia.js"></script>
+    <script src="assets/js/sea.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
 
