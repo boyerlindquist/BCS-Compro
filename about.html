@@ -1,36 +1,447 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Tentang Kami - Company Profile">
-    <title>Tentang Kami - Company Profile</title>
+    <title>About Us - Biodiversity Consultancy Services</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
+    
+    <style>
+        .hero-mini {
+            height: 50vh;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+        }
+        .hero-mini h1 {
+            font-size: 3.5rem;
+            color: #ffffff;
+            z-index: 2;
+            position: relative;
+            text-align: center;
+        }
+        .vision-mission-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+        .mission-list {
+            list-style: none;
+            padding: 0;
+        }
+        .mission-list li {
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        .mission-list svg {
+            color: var(--accent-green);
+            flex-shrink: 0;
+            margin-top: 5px;
+        }
+        .goals-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .goal-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        .goal-num {
+            font-size: 5rem;
+            font-weight: 700;
+            position: absolute;
+            top: -20px;
+            right: -10px;
+            color: rgba(255, 255, 255, 0.05);
+            line-height: 1;
+        }
+        .experts-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .expert-group h4 {
+            color: var(--accent-green);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        .expert-group ul {
+            list-style: none;
+            padding: 0;
+        }
+        .expert-group ul li {
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+        @media (max-width: 768px) {
+            .vision-mission-grid { grid-template-columns: 1fr; }
+            .goals-grid { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
+
 <body>
-    <header>
+
+    <!-- Minimalist Navbar -->
+    <header class="glass-nav">
         <nav>
-            <div class="logo">Company Name</div>
+            <div class="logo">
+                <img src="assets/images/bcs-logo-01.png" alt="BCS Logo"
+                    onerror="this.style.display='none'; document.getElementById('text-logo').style.display='block';">
+                <span id="text-logo"
+                    style="display:none; font-family:'Inter', sans-serif; font-weight:700; font-size:1.5rem; letter-spacing:2px; color:#fff;">BCS<span
+                        style="font-size:0.5em; vertical-align:top;">&reg;</span></span>
+            </div>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html" class="active">About Us</a></li>
+                <li><a href="about.html" class="active">About</a></li>
                 <li><a href="services.html">Services</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="about.html#team">Team</a></li>
+                <li>
+                    <a href="#contact" class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.85rem;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" style="margin-right: 5px;">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                        Search
+                    </a>
+                </li>
             </ul>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark/Light Mode" style="display: none;">
+                    <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                    <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                </button>
+                <div class="hamburger" id="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
         </nav>
     </header>
-    
+
     <main>
-        <section class="content-section">
-            <h1>Tentang Kami</h1>
-            <p>Informasi tentang sejarah, visi, dan misi perusahaan kami.</p>
+        <!-- Hero Section -->
+        <section class="hero-mini" style="background-image: url('assets/images/about_forest_bg.jpg');">
+            <div class="hero-overlay" style="background: linear-gradient(to bottom, rgba(10, 20, 15, 0.2) 0%, rgba(10, 20, 15, 0.6) 70%, var(--body-bg) 100%);"></div>
+            <h1 class="fade-in-up">About BCS</h1>
         </section>
+
+        <!-- Vision & Mission -->
+        <section class="section dark-section">
+            <div class="container vision-mission-grid">
+                <div class="scroll-reveal">
+                    <h2 class="section-title">Our Vision</h2>
+                    <p class="lead mt-4">Making BCS an exemplary company in the field of biodiversity that always innovates in seeking a balance between environmental, human and sustainable industrial activities.</p>
+                </div>
+                <div class="scroll-reveal delay-1 glass-panel" style="padding: 3rem;">
+                    <h2 class="section-title" style="margin-bottom: 2rem;">Our Mission</h2>
+                    <ul class="mission-list">
+                        <li>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <div>To become a professional and leading consulting company.</div>
+                        </li>
+                        <li>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <div>Always innovating and using the up-to-date approach and technology to achieve the best results.</div>
+                        </li>
+                        <li>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <div>Act with integrity in the best efforts to achieve a balance between environmental sustainability and industrial activities that are humane and sustainable.</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Strength -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title text-center scroll-reveal">Our Strength</h2>
+                
+                <div class="features-grid mt-4">
+                    <div class="feature-item scroll-reveal">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--accent-green)" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                        <h3 class="mt-2 mb-2">Technical Expertise</h3>
+                        <p class="text-sm">Our team boasts deep understanding of biodiversity across wide taxonomic groups. Recognized authorities in vegetation, mammals, birds, herpetofauna, insects, aquatic life, and marine ecosystems.</p>
+                    </div>
+                    <div class="feature-item scroll-reveal delay-1">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--accent-green)" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                        <h3 class="mt-2 mb-2">Innovation</h3>
+                        <p class="text-sm">Committed to staying at the forefront of technological advancements. We incorporate UAV/drone surveys, camera traps, acoustic recorders, and GIS-based data management.</p>
+                    </div>
+                    <div class="feature-item scroll-reveal delay-2">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--accent-green)" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                        <h3 class="mt-2 mb-2">Broad Usage</h3>
+                        <p class="text-sm">Comprehensive biodiversity services across all sectors and project phases, from initial planning to implementation, closure, and restoration.</p>
+                    </div>
+                    <div class="feature-item scroll-reveal delay-3">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--accent-green)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        <h3 class="mt-2 mb-2">Tailored Approach</h3>
+                        <p class="text-sm">We recognize that not all biodiversity issues are created equal, emphasizing a tailored approach to meet varying local, national, and international requirements.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Goals -->
+        <section class="section dark-section">
+            <div class="container">
+                <h2 class="section-title text-center scroll-reveal">Our Goals</h2>
+                <p class="section-subtitle text-center scroll-reveal">Our Goal Define Path for Our Success.</p>
+
+                <div class="goals-grid">
+                    <div class="goal-card scroll-reveal">
+                        <div class="goal-num">01</div>
+                        <h3>Leading Company</h3>
+                        <p class="mt-2 text-muted">Be A Leading Biodiversity Consulting Company on Biodiversity and Ecosystem Services in Indonesia.</p>
+                    </div>
+                    <div class="goal-card scroll-reveal delay-1">
+                        <div class="goal-num">02</div>
+                        <h3>Professional Services</h3>
+                        <p class="mt-2 text-muted">To Excel in Our Professional Services on Biodiversity Consultancy.</p>
+                    </div>
+                    <div class="goal-card scroll-reveal delay-2">
+                        <div class="goal-num">03</div>
+                        <h3>Client Goals</h3>
+                        <p class="mt-2 text-muted">Achieving More Client Goals on Biodiversity Protection and Conservation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section id="team" class="section">
+            <div class="container">
+                <h2 class="section-title text-center scroll-reveal">Key Leadership</h2>
+                <div class="team-grid mt-4">
+                    <!-- Erry -->
+                    <div class="team-card scroll-reveal">
+                        <div class="team-img">
+                            <img src="assets/images/FotoWdbaru.jpg" alt="Erry Kurniawan"
+                                onerror="this.src='https://via.placeholder.com/300x400/2d6a4f/ffffff?text=EK'">
+                        </div>
+                        <div class="team-info glass-panel">
+                            <h3>Erry Kurniawan, M.Si</h3>
+                            <span class="role">CEO & Ecologist Specialist</span>
+                            <p class="text-sm mt-2 text-muted" style="text-transform: none;">Over twelve years of experience as an independent biodiversity specialist and led biodiversity studies for numerous global and national companies.</p>
+                        </div>
+                    </div>
+                    <!-- Iqrarul -->
+                    <div class="team-card scroll-reveal delay-1">
+                        <div class="team-img">
+                            <img src="assets/images/arull.png" alt="Iqrarul Fata"
+                                onerror="this.src='https://via.placeholder.com/300x400/2d6a4f/ffffff?text=IF'">
+                        </div>
+                        <div class="team-info glass-panel">
+                            <h3>Iqrarul Fata, S.Hut</h3>
+                            <span class="role">COO & GIS Consultant</span>
+                            <p class="text-sm mt-2 text-muted" style="text-transform: none;">Over ten years of experience as a biodiversity, GIS and environmental consultant within renowned global consultancy firms.</p>
+                        </div>
+                    </div>
+                    <!-- Afnan -->
+                    <div class="team-card scroll-reveal delay-2">
+                        <div class="team-img">
+                            <div class="placeholder-img" style="background:var(--primary-dark); height:100%;"></div>
+                        </div>
+                        <div class="team-info glass-panel">
+                            <h3>E M Aaf Afnan, S. Hut</h3>
+                            <span class="role">Principle Consultant</span>
+                            <p class="text-sm mt-2 text-muted" style="text-transform: none;">Over ten years of experience as a terrestrial biodiversity consultant specialist in wildlife management and conservation.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 6rem; padding-top: 4rem; border-top: 1px solid rgba(255,255,255,0.1);">
+                    <h3 class="text-center scroll-reveal mb-4">Associate Team and Experts</h3>
+                    
+                    <div class="experts-list scroll-reveal delay-1">
+                        <div class="expert-group">
+                            <h4>Ecologist, Compliance, Due Diligence, IA</h4>
+                            <ul>
+                                <li>Erry Kurniawan, M.Si</li>
+                                <li>Iqrarul Fata, S.Hut</li>
+                                <li>EM Aaf Afnan, S. Hut</li>
+                                <li>Ahmad Murshid M.Si</li>
+                                <li>M Choiruddin Azis, SP</li>
+                            </ul>
+                        </div>
+                        <div class="expert-group">
+                            <h4>Botanist</h4>
+                            <ul>
+                                <li>Ryna Ashari, M.Si</li>
+                                <li>Gilang Nur Satria, SP</li>
+                                <li>Renata Monica, ST</li>
+                            </ul>
+                        </div>
+                        <div class="expert-group">
+                            <h4>Mammalogist</h4>
+                            <ul>
+                                <li>Febry R Hendiyanto, S.Hut</li>
+                                <li>Miftahul Rizky, SP</li>
+                                <li>Restu Syafaatul Mufti</li>
+                                <li>EM Aaf Afnan, S. Hut</li>
+                            </ul>
+                        </div>
+                        <div class="expert-group">
+                            <h4>Bat Specialist</h4>
+                            <ul>
+                                <li>drh. Auzan Z Sukaton</li>
+                                <li>Siwi Arpathi Mandiri</li>
+                                <li>Miftahul Rizky, SP</li>
+                                <li>Dewa Nugraha, S.Pt</li>
+                                <li>Ahmad Murshid M.Si</li>
+                            </ul>
+                        </div>
+                        <div class="expert-group">
+                            <h4>Primatologist</h4>
+                            <ul>
+                                <li>Dr. Fitriah Basalamah</li>
+                                <li>Hery Sudarno, M.Si</li>
+                                <li>Rahayu Oktaviani, M.Sc</li>
+                                <li>Gusti Wicaksono, S.Si</li>
+                            </ul>
+                        </div>
+                        <div class="expert-group">
+                            <h4>Ornithologist</h4>
+                            <ul>
+                                <li>Nanang K Hadi, M.Si</li>
+                                <li>Ilham Kartiko S.Hut</li>
+                                <li>Wahyuni Hardiyanti, S.Hut</li>
+                                <li>Shofar Atthoyibi, S.Si</li>
+                                <li>Ahmad Murshid M.Si</li>
+                            </ul>
+                        </div>
+                        <div class="expert-group">
+                            <h4>Herpetologist</h4>
+                            <ul>
+                                <li>Ahmad Nanang BA, S.Hut</li>
+                                <li>Purnama Graha</li>
+                                <li>Dewa Nugraha, S.Pt</li>
+                                <li>Bilal Maulana</li>
+                            </ul>
+                        </div>
+                        <div class="expert-group">
+                            <h4>Entomologist</h4>
+                            <ul>
+                                <li>Raja R Harahap</li>
+                                <li>Akbar Alif Pribadi, SP</li>
+                                <li>Farhana Auliadin, S.Si</li>
+                                <li>Caesar Adhitya</li>
+                            </ul>
+                        </div>
+                        <div class="expert-group">
+                            <h4>Freshwater & Marine</h4>
+                            <ul>
+                                <li>Ahmad Muhtadi, M.Si</li>
+                                <li>Rikho Jerikho, S.Pi</li>
+                                <li>Ramadani Fitra, M.Si</li>
+                                <li>Dyta Rabbani Aidil, S.Si.</li>
+                                <li>Vivi Safitri, M.Si.</li>
+                                <li>Fis Purwangka</li>
+                            </ul>
+                        </div>
+                        <div class="expert-group">
+                            <h4>GIS Specialist</h4>
+                            <ul>
+                                <li>Salmana Wahwakhi, M.Si</li>
+                                <li>Kamaludin Asyaebani, S.Hut</li>
+                                <li>Renata Monica, ST</li>
+                            </ul>
+                        </div>
+                        <div class="expert-group">
+                            <h4>Planning & Management</h4>
+                            <ul>
+                                <li>M. Choiruddin Azis, SP</li>
+                                <li>Miftahul Rizky, SP</li>
+                                <li>Andini Kusumawardhani, M.Si (Ecosystem Services)</li>
+                                <li>Renata Monica, ST (Ecosystem Services)</li>
+                            </ul>
+                        </div>
+                        <div class="expert-group">
+                            <h4>Social Specialist</h4>
+                            <ul>
+                                <li>Ervina Anggraini, S.Sos</li>
+                                <li>Fadya Syifa Hani, ST</li>
+                                <li>Andini Kusumawardhani, M.Si</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer id="contact" class="footer">
+            <div class="container two-col">
+                <div class="footer-info">
+                    <h2 class="section-title">Let's Talk Sustainability.</h2>
+                    <p class="text-muted mt-2 mb-4">Ready to find the safest way to conduct your business while
+                        enhancing biodiversity? Get in touch with our experts.</p>
+
+                    <div class="contact-methods">
+                        <a href="mailto:admin@biodiversitycs.com" class="contact-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                </path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                            admin@biodiversitycs.com
+                        </a>
+                        <a href="tel:+6282213322344" class="contact-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                </path>
+                            </svg>
+                            +62 822 1332 2344
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-address glass-panel">
+                    <h3>Headquarters</h3>
+                    <p class="text-muted">Legalyn Center, Epiwalk Office, Suite Lt. 5 Unit A501<br>Kawasan Epicentrum
+                        Jl. H.R. Rasuna Said<br>Karet Kuningan, Setiabudi, Jakarta Selatan<br>DKI Jakarta 12940</p>
+                </div>
+            </div>
+            <div class="footer-bottom text-center">
+                <p class="text-muted text-sm">&copy; 2026 Biodiversity Consultancy Services (PT Biodiversitas Cipta
+                    Solusi). All rights reserved.</p>
+            </div>
+        </footer>
     </main>
 
-    <footer>
-        <p>&copy; 2026 Company Name. All rights reserved.</p>
-    </footer>
-
+    <!-- Scripts -->
     <script src="assets/js/main.js"></script>
 </body>
 </html>

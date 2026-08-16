@@ -1,39 +1,406 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Layanan Kami - Company Profile">
-    <title>Layanan - Company Profile</title>
+    <title>Our Services - Biodiversity Consultancy Services</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
+    
+    <style>
+        .hero-mini {
+            height: 50vh;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+        }
+        .hero-mini h1 {
+            font-size: 3.5rem;
+            color: #ffffff;
+            z-index: 2;
+            position: relative;
+            text-align: center;
+        }
+        
+        .all-services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .service-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .service-card svg {
+            color: var(--accent-green);
+            margin-bottom: 1rem;
+        }
+        .service-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Business Phase Timeline */
+        .timeline-wrapper {
+            margin-top: 4rem;
+            overflow-x: auto;
+            padding-bottom: 2rem;
+        }
+        .timeline {
+            display: flex;
+            min-width: 900px;
+            justify-content: space-between;
+            position: relative;
+            padding-top: 30px;
+        }
+        .timeline-line {
+            position: absolute;
+            top: 73px;
+            left: 10%;
+            right: 10%;
+            height: 4px;
+            background: var(--accent-green);
+            opacity: 0.5;
+            z-index: 1;
+        }
+        .phase-step {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            flex: 1;
+            padding: 0 10px;
+        }
+        .phase-step h4 {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        .phase-step .dot {
+            width: 24px;
+            height: 24px;
+            background: #0f1712;
+            border-radius: 50%;
+            margin: 0 auto 20px auto;
+            border: 4px solid var(--accent-green);
+            box-shadow: 0 0 15px rgba(45, 106, 79, 0.5);
+            position: relative;
+        }
+        .phase-services {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-align: left;
+            min-height: 150px;
+            position: relative;
+        }
+        .phase-services::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%) rotate(45deg);
+            width: 15px;
+            height: 15px;
+            background: #192720;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            border-left: 1px solid rgba(255,255,255,0.1);
+        }
+        .phase-services ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .phase-services ul li {
+            margin-bottom: 0.5rem;
+            padding-left: 1rem;
+            position: relative;
+        }
+        .phase-services ul li::before {
+            content: '›';
+            position: absolute;
+            left: 0;
+            color: var(--accent-green);
+        }
+    </style>
 </head>
+
 <body>
-    <header>
+
+    <!-- Minimalist Navbar -->
+    <header class="glass-nav">
         <nav>
-            <div class="logo">Company Name</div>
+            <div class="logo">
+                <img src="assets/images/bcs-logo-01.png" alt="BCS Logo"
+                    onerror="this.style.display='none'; document.getElementById('text-logo').style.display='block';">
+                <span id="text-logo"
+                    style="display:none; font-family:'Inter', sans-serif; font-weight:700; font-size:1.5rem; letter-spacing:2px; color:#fff;">BCS<span
+                        style="font-size:0.5em; vertical-align:top;">&reg;</span></span>
+            </div>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
+                <li><a href="about.html">About</a></li>
                 <li><a href="services.html" class="active">Services</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="about.html#team">Team</a></li>
+                <li>
+                    <a href="#contact" class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.85rem;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" style="margin-right: 5px;">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                        Search
+                    </a>
+                </li>
             </ul>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark/Light Mode" style="display: none;">
+                    <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                    <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                </button>
+                <div class="hamburger" id="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
         </nav>
     </header>
-    
+
     <main>
-        <section class="content-section">
-            <h1>Layanan Kami</h1>
-            <p>Daftar produk atau jasa yang kami tawarkan.</p>
-            <div class="services-grid">
-                <!-- Service items will go here -->
+        <!-- Hero Section -->
+        <section class="hero-mini" style="background-image: url('assets/images/services_forest_bg.jpg');">
+            <div class="hero-overlay" style="background: linear-gradient(to bottom, rgba(10, 20, 15, 0.2) 0%, rgba(10, 20, 15, 0.6) 70%, var(--body-bg) 100%);"></div>
+            <h1 class="fade-in-up">Our Services</h1>
+        </section>
+
+        <!-- Services Section -->
+        <section class="section">
+            <div class="container">
+                <div class="text-center scroll-reveal">
+                    <h2 class="section-title">Focusing on Biodiversity Services</h2>
+                    <p class="section-subtitle">Comprehensive solutions in Indonesia Archipelago.</p>
+                </div>
+
+                <div class="all-services-grid">
+                    <div class="service-card scroll-reveal">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                        <h3>Feasibility Analysis</h3>
+                        <p>Our team of experts can help whether your project plan is feasible or not regarding to the biodiversity aspect.</p>
+                    </div>
+                    <div class="service-card scroll-reveal delay-1">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+                        <h3>Screening & Scoping</h3>
+                        <p>Conduct screening and scoping of project impact to make your future survey and assessment more effective and efficient.</p>
+                    </div>
+                    <div class="service-card scroll-reveal delay-2">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
+                        <h3>Rapid Survey</h3>
+                        <p>Conduct terrestrial, freshwater and marine waters biodiversity survey following scientific method and approach.</p>
+                    </div>
+                    <div class="service-card scroll-reveal">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                        <h3>Detailed Survey</h3>
+                        <p>Detailed study needed by the project following scientific method and approach as well as specific requirements.</p>
+                    </div>
+                    <div class="service-card scroll-reveal delay-1">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+                        <h3>Impact Assessment (EIA)</h3>
+                        <p>Support in developing Environmental Impact Assessment based on national and international requirements.</p>
+                    </div>
+                    <div class="service-card scroll-reveal delay-2">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+                        <h3>Action & Management Plan</h3>
+                        <p>Develop management, strategy, and action plan including site-level SOP regarding biodiversity protection.</p>
+                    </div>
+                    <div class="service-card scroll-reveal">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        <h3>Critical Habitat Assessment</h3>
+                        <p>Assessing critical habitats as a consequence of the presence of significant biodiversity value in your site.</p>
+                    </div>
+                    <div class="service-card scroll-reveal delay-1">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                        <h3>Ecosystem Services</h3>
+                        <p>Conduct ecosystem services assessment including mitigation measures based on Millennium Ecosystem Assessment.</p>
+                    </div>
+                    <div class="service-card scroll-reveal delay-2">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                        <h3>Designing Management</h3>
+                        <p>Design each project phase including BAP, BMP and Biodiversity Offset Management Plan (BOMP).</p>
+                    </div>
+                    <div class="service-card scroll-reveal">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                        <h3>Monitoring & Audit</h3>
+                        <p>Routine monitoring and internal audit for your national and international obligation.</p>
+                    </div>
+                    <div class="service-card scroll-reveal delay-1">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M16 12l-4-4-4 4M12 16V8"></path></svg>
+                        <h3>Implementation Program</h3>
+                        <p>Support your project obligation in implementing biodiversity management and monitoring program.</p>
+                    </div>
+                    <div class="service-card scroll-reveal delay-2">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                        <h3>Consultation & Liaison</h3>
+                        <p>Support consultation and liaison with specific stakeholders including NGO and environmentalists.</p>
+                    </div>
+                    <div class="service-card scroll-reveal">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                        <h3>Training & Awareness</h3>
+                        <p>Increase project team knowledge, understanding and capability on biodiversity.</p>
+                    </div>
+                    <div class="service-card scroll-reveal delay-1">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><polyline points="17 11 19 13 23 9"></polyline></svg>
+                        <h3>Second Man</h3>
+                        <p>BCS expert can assist your project team on site regarding project obligation and implementation.</p>
+                    </div>
+                </div>
             </div>
         </section>
+
+        <!-- Business Phase Timeline -->
+        <section class="section dark-section">
+            <div class="container">
+                <div class="text-center scroll-reveal">
+                    <h2 class="section-title">Related To Business Phase</h2>
+                    <p class="section-subtitle">We Should Work on Our Process, Not The Outcome of Our Processes.</p>
+                </div>
+
+                <div class="timeline-wrapper scroll-reveal mt-4">
+                    <div class="timeline">
+                        <div class="timeline-line"></div>
+                        <div class="phase-step">
+                            <h4>Exploration</h4>
+                            <div class="dot"></div>
+                            <div class="phase-services">
+                                <ul>
+                                    <li>Feasibility Study</li>
+                                    <li>Rapid Assessment</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="phase-step">
+                            <h4>Planning</h4>
+                            <div class="dot"></div>
+                            <div class="phase-services">
+                                <ul>
+                                    <li>Detailed Ecological Study</li>
+                                    <li>Biodiversity Mgmt Plan</li>
+                                    <li>Ecosystem Services Analysis</li>
+                                    <li>Designing Mgmt Programs</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="phase-step">
+                            <h4>Construction</h4>
+                            <div class="dot"></div>
+                            <div class="phase-services">
+                                <ul>
+                                    <li>Continuous Monitoring</li>
+                                    <li>Project Professional Assisting</li>
+                                    <li>Training and Awareness</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="phase-step">
+                            <h4>Operation</h4>
+                            <div class="dot"></div>
+                            <div class="phase-services">
+                                <ul>
+                                    <li>Continuous Monitoring</li>
+                                    <li>Compliance Audit</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="phase-step">
+                            <h4>Post Operation</h4>
+                            <div class="dot"></div>
+                            <div class="phase-services">
+                                <ul>
+                                    <li>Restoration Assessment</li>
+                                    <li>Post-closure Monitoring</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer id="contact" class="footer">
+            <div class="container two-col">
+                <div class="footer-info">
+                    <h2 class="section-title">Let's Talk Sustainability.</h2>
+                    <p class="text-muted mt-2 mb-4">Ready to find the safest way to conduct your business while
+                        enhancing biodiversity? Get in touch with our experts.</p>
+
+                    <div class="contact-methods">
+                        <a href="mailto:admin@biodiversitycs.com" class="contact-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                </path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                            admin@biodiversitycs.com
+                        </a>
+                        <a href="tel:+6282213322344" class="contact-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                </path>
+                            </svg>
+                            +62 822 1332 2344
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-address glass-panel">
+                    <h3>Headquarters</h3>
+                    <p class="text-muted">Legalyn Center, Epiwalk Office, Suite Lt. 5 Unit A501<br>Kawasan Epicentrum
+                        Jl. H.R. Rasuna Said<br>Karet Kuningan, Setiabudi, Jakarta Selatan<br>DKI Jakarta 12940</p>
+                </div>
+            </div>
+            <div class="footer-bottom text-center">
+                <p class="text-muted text-sm">&copy; 2026 Biodiversity Consultancy Services (PT Biodiversitas Cipta
+                    Solusi). All rights reserved.</p>
+            </div>
+        </footer>
     </main>
 
-    <footer>
-        <p>&copy; 2026 Company Name. All rights reserved.</p>
-    </footer>
-
+    <!-- Scripts -->
     <script src="assets/js/main.js"></script>
 </body>
 </html>

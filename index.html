@@ -30,10 +30,11 @@
                         style="font-size:0.5em; vertical-align:top;">&reg;</span></span>
             </div>
             <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="#team">Team</a></li>
+                <li><a href="about.html#team">Team</a></li>
                 <li>
                     <a href="#contact" class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.85rem;">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -218,42 +219,64 @@
             </div>
         </section>
 
-        <!-- Team Section -->
-        <section id="team" class="section">
+        <!-- Why Choose Us Section -->
+        <section id="why-choose-us" class="section dark-section">
             <div class="container">
-                <h2 class="section-title text-center scroll-reveal">Key Leadership</h2>
-                <div class="team-grid mt-4">
-                    <!-- Erry -->
-                    <div class="team-card scroll-reveal">
-                        <div class="team-img">
-                            <img src="assets/images/FotoWdbaru.jpg" alt="Erry Kurniawan"
-                                onerror="this.src='https://via.placeholder.com/300x400/2d6a4f/ffffff?text=EK'">
-                        </div>
-                        <div class="team-info glass-panel">
-                            <h3>Erry Kurniawan</h3>
-                            <span class="role">CEO & Ecologist Specialist</span>
-                        </div>
+                <h2 class="section-title text-center scroll-reveal">Why Choose BCS?</h2>
+                <p class="section-subtitle text-center scroll-reveal">Our core values that drive sustainable success.</p>
+                <div class="features-grid mt-4">
+                    <div class="feature-item scroll-reveal delay-1">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent-green)" stroke-width="2"><path d="M3 18v-6a9 9 0 0 1 18 0v6"></path><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path></svg>
+                        <h3>We Listen</h3>
                     </div>
-                    <!-- Iqrarul -->
-                    <div class="team-card scroll-reveal delay-1">
-                        <div class="team-img">
-                            <img src="assets/images/arull.png" alt="Iqrarul Fata"
-                                onerror="this.src='https://via.placeholder.com/300x400/2d6a4f/ffffff?text=IF'">
-                        </div>
-                        <div class="team-info glass-panel">
-                            <h3>Iqrarul Fata</h3>
-                            <span class="role">COO & GIS Consultant</span>
-                        </div>
+                    <div class="feature-item scroll-reveal delay-2">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent-green)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        <h3>Experienced</h3>
                     </div>
-                    <!-- Afnan -->
-                    <div class="team-card scroll-reveal delay-2">
-                        <div class="team-img">
-                            <div class="placeholder-img" style="background:var(--primary-dark); height:100%;"></div>
-                        </div>
-                        <div class="team-info glass-panel">
-                            <h3>E M Aaf Afnan</h3>
-                            <span class="role">Principle Consultant</span>
-                        </div>
+                    <div class="feature-item scroll-reveal delay-3">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent-green)" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                        <h3>Creative & Technical</h3>
+                    </div>
+                    <div class="feature-item scroll-reveal delay-1">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent-green)" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                        <h3>Customer Relationship</h3>
+                    </div>
+                    <div class="feature-item scroll-reveal delay-2">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent-green)" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                        <h3>Adaptive & Innovative</h3>
+                    </div>
+                    <div class="feature-item scroll-reveal delay-3">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent-green)" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                        <h3>Passionate</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Partners Marquee -->
+        <section id="partners" class="section py-sm" style="background: rgba(255,255,255,0.02);">
+            <div class="container">
+                <p class="text-center text-muted mb-2 scroll-reveal"
+                    style="letter-spacing: 2px; text-transform: uppercase; font-size: 0.85rem;">Conserve The Biodiversity is Working Together</p>
+                <div class="marquee scroll-reveal">
+                    <div class="marquee-content" style="filter: grayscale(1) opacity(0.7); animation-direction: reverse;">
+                        <span style="font-weight: 600; font-size: 1.2rem; margin: 0 2rem;">KIARA</span>
+                        <span style="font-weight: 600; font-size: 1.2rem; margin: 0 2rem;">KslOma Institute</span>
+                        <span style="font-weight: 600; font-size: 1.2rem; margin: 0 2rem;">UOB</span>
+                        <span style="font-weight: 600; font-size: 1.2rem; margin: 0 2rem;">Institut Pertanian Bogor</span>
+                        <span style="font-weight: 600; font-size: 1.2rem; margin: 0 2rem;">Universitas Sumatera Utara</span>
+                        <span style="font-weight: 600; font-size: 1.2rem; margin: 0 2rem;">Universitas Halmahera</span>
+                        <span style="font-weight: 600; font-size: 1.2rem; margin: 0 2rem;">Universitas Andalas</span>
+                        <span style="font-weight: 600; font-size: 1.2rem; margin: 0 2rem;">Universitas Padjadjaran</span>
+                        
+                        <span style="font-weight: 600; font-size: 1.2rem; margin: 0 2rem;">KIARA</span>
+                        <span style="font-weight: 600; font-size: 1.2rem; margin: 0 2rem;">KslOma Institute</span>
+                        <span style="font-weight: 600; font-size: 1.2rem; margin: 0 2rem;">UOB</span>
+                        <span style="font-weight: 600; font-size: 1.2rem; margin: 0 2rem;">Institut Pertanian Bogor</span>
+                        <span style="font-weight: 600; font-size: 1.2rem; margin: 0 2rem;">Universitas Sumatera Utara</span>
+                        <span style="font-weight: 600; font-size: 1.2rem; margin: 0 2rem;">Universitas Halmahera</span>
+                        <span style="font-weight: 600; font-size: 1.2rem; margin: 0 2rem;">Universitas Andalas</span>
+                        <span style="font-weight: 600; font-size: 1.2rem; margin: 0 2rem;">Universitas Padjadjaran</span>
                     </div>
                 </div>
             </div>
