@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
-    
+
     // 0. Theme Toggle & Mobile Menu
     const themeToggle = document.getElementById('theme-toggle');
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.querySelector('.nav-links');
-    
+
     // Initialize Theme (Temporarily disabled)
     /*
     if (localStorage.getItem('theme') === 'light') {
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
             hamburger.classList.toggle('active');
             navLinks.classList.toggle('active');
         });
-        
+
         // Close menu when a link is clicked
         navLinks.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 2. Scroll Reveal Animations using Intersection Observer
     const revealElements = document.querySelectorAll('.scroll-reveal');
-    
+
     const revealObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -75,8 +75,8 @@ document.addEventListener('DOMContentLoaded', () => {
             { region: 'java', name: 'VOPAK Jakarta Tank Terminal', type: 'Biodiversity Management Plan', desc: 'Conducting inventory of terrestrial and marine biodiversity, and developing a comprehensive BMP for project activities.', image: 'assets/images/svc_feasibility.jpg' },
             { region: 'java', name: 'Welirang Arjuno Geothermal', type: 'ESIA', desc: 'Development of ESIA study for the geothermal project in compliance with national regulations and IFC PS.', image: 'assets/images/svc_survey.jpg' },
             { region: 'java', name: 'Saguling Floating Solar', type: 'ESMS & ESMP', desc: 'Creation of standard operating procedures, policies, and sub-plans based on IFC Performance Standards.', image: 'assets/images/svc_management.jpg' },
-            { region: 'java', name: 'Legok Nangka Waste to Energy', type: 'ESIA', desc: 'Terrestrial and freshwater aquatic biodiversity survey for ESIA of WFTPS based on ADB Safeguards.', image: 'assets/images/svc_habitat.jpg' },
-            { region: 'sumatra', name: 'Singkarak Floating Solar', type: 'ESIA', desc: 'Biodiversity study for ESIA based on ADB Safeguard, IFC PS6, and IFC GN6.', image: 'assets/images/svc_feasibility.jpg' },
+            { region: 'java', name: 'Legok Nangka Waste to Energy', type: 'ESIA', desc: 'Terrestrial and freshwater aquatic biodiversity survey for ESIA of WFTPS based on ADB Safeguards.', image: 'assets/images/svc_feasibility.jpg' },
+            { region: 'sumatra', name: 'Singkarak Floating Solar', type: 'ESIA', desc: 'Biodiversity study for ESIA based on ADB Safeguard, IFC PS6, and IFC GN6.', image: 'assets/images/c1.jpg' },
             { region: 'nusa', name: 'Green Power Plant Sumba', type: 'ESIA', desc: 'Biodiversity survey for ESIA of Green Power Plant Project (solar, wind, hydrogen).', image: 'assets/images/svc_survey.jpg' }
         ];
 
@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Register Map directly from the global variable to bypass CORS issues on file:/// protocol
             echarts.registerMap('SEA', seaGeoJson);
             const myChart = echarts.init(mapContainer);
-            
+
             const option = {
                 backgroundColor: 'transparent',
                 tooltip: {
@@ -125,22 +125,22 @@ document.addEventListener('DOMContentLoaded', () => {
                     textStyle: { color: '#fff' },
                     padding: 16,
                     borderRadius: 12,
-                    formatter: function(params) {
+                    formatter: function (params) {
                         if (params.seriesType === 'effectScatter') {
                             const region = params.data.region;
                             const regionProjects = allProjects.filter(p => p.region === region);
                             if (regionProjects.length === 0) return 'No projects found here.';
-                            
+
                             let html = `<div style="font-family: 'Inter', sans-serif; min-width: 220px;">`;
                             html += `<h4 style="margin-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px; font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #fff;">Projects in ${params.name}</h4>`;
-                            
+
                             regionProjects.forEach(p => {
                                 html += `<div style="margin-bottom: 10px;">
                                             <strong style="color: #74c69d; font-size: 0.95rem; display: block; margin-bottom: 2px;">${p.name}</strong>
                                             <span style="font-size: 0.8rem; color: #b0b8c4; text-transform: uppercase; letter-spacing: 0.5px;">${p.type}</span>
                                          </div>`;
                             });
-                            
+
                             html += `</div>`;
                             return html;
                         }
@@ -209,7 +209,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 ]
             };
             myChart.setOption(option);
-            
+
             // Listen for theme changes to update map colors
             document.addEventListener('themeChanged', (e) => {
                 const isLight = e.detail.isLight;
@@ -233,17 +233,17 @@ document.addEventListener('DOMContentLoaded', () => {
                     }]
                 });
             });
-            
+
             // Set initial theme for map if already in light mode
             if (document.body.classList.contains('light-mode')) {
                 document.dispatchEvent(new CustomEvent('themeChanged', { detail: { isLight: true } }));
             }
-            
+
             // Handle Resize
             window.addEventListener('resize', () => {
                 myChart.resize();
             });
-            
+
             // Hover Event to link with Project Cards
             myChart.on('mouseover', function (params) {
                 // Determine region from point or map area
@@ -251,26 +251,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (params.componentType === 'series') {
                     region = params.data.region;
                 }
-                
+
                 if (region) {
                     const cards = document.querySelectorAll('.project-card-item');
                     let firstMatch = null;
-                    
+
                     cards.forEach(card => {
-                        if(card.getAttribute('data-region') === region) {
+                        if (card.getAttribute('data-region') === region) {
                             card.classList.add('highlighted');
-                            if(!firstMatch) firstMatch = card;
+                            if (!firstMatch) firstMatch = card;
                         } else {
                             card.classList.remove('highlighted');
                         }
                     });
-                    
-                    if(firstMatch) {
+
+                    if (firstMatch) {
                         firstMatch.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
                     }
                 }
             });
-            
+
             myChart.on('mouseout', function () {
                 document.querySelectorAll('.project-card-item').forEach(card => card.classList.remove('highlighted'));
             });
