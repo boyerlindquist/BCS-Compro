@@ -275,6 +275,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.querySelectorAll('.project-card-item').forEach(card => card.classList.remove('highlighted'));
             });
 
+            // Ensure map resizes with window (crucial for mobile)
+            window.addEventListener('resize', function () {
+                if (myChart) {
+                    myChart.resize();
+                }
+            });
+
         } catch (error) {
             console.error('Error loading map data:', error);
             mapContainer.innerHTML = '<div style="color:white;text-align:center;padding:2rem;">Failed to load map data. Please ensure you are running on a local server.</div>';
